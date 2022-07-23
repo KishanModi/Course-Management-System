@@ -1,0 +1,36 @@
+Person{
+    first_name:string
+    last_name:string
+    birthdate:date
+    phone_number:int
+    email:string
+
+}
+
+Student{
+    isInternational:Boolean
+    enrolmentNumber:int
+    dateOfEnrolment:date
+}
+
+Professor{
+    role:string
+    employeeNumber:int
+    courses:Course[]
+}
+
+Course{
+    courseId:int
+    courseName:string
+    Instructors:Professor[]
+    terms:String[]
+    credits:int
+}
+
+Enrol{
+    grade:int
+    enrolDate:date
+    student: Student
+    course: Course
+    professor: Professor
+}
