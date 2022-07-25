@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.InputMismatchException;
+
 public class Person {
     String firstName;
     String lastName;
@@ -6,12 +8,12 @@ public class Person {
     long phoneNumber;
     String email;
 
-    public Person(String firstName, String lastName,LocalDate birthDate, long phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+    public Person(String firstName, String lastName,LocalDate birthDate, long phoneNumber, String email) throws InputMismatchException {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthDate = birthDate;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
     }
 
     public void updatePhoneNumber(long phoneNumber) throws CustomException{

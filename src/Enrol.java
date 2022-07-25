@@ -14,7 +14,10 @@ public class Enrol {
         this.enrolDate = LocalDate.now();
         this.course = course;
         this.student = student;
-        this.professor = professor;
+        if(professor.courses.contains(course)){
+            this.professor = professor;
+        }
+        course.addStudent(course,student);
     }
 
     public int checkGrades(Student student, Course course) throws NullPointerException {

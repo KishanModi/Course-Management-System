@@ -24,17 +24,16 @@ public class Professor extends Person{
         this.courses = courses;
     }
 
-    public Boolean addCourse(Course course) throws InvalidClassException,NullPointerException{
+    public void addCourse(Course course) throws InvalidClassException,NullPointerException{
         try{
             if(course==null){
                 throw new NullPointerException("Course is invalid");
             }
         }catch(NullPointerException e){
             System.out.println(e.getMessage());
-            return false;
+            return;
         }
         this.courses.add(course);
-        return true;
     }
     public String changePosition(Boolean promote, Professor professor, String position) throws NullPointerException{
         try{
@@ -47,22 +46,21 @@ public class Professor extends Person{
         }catch(CustomException | NullPointerException e){
             System.out.println(e.getMessage());
         }
+        assert professor != null;
         professor.position = position;
         return promote ? "Promoted":"Demoted";
 
     }
 
-//    @Override
-//    public String toString() {
-//        return "Professor{" +
-//                "position='" + position + '\'' +
-//                ", employeeNumber=" + employeeNumber +
-//                ", courses=" + courses +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", birthDate=" + birthDate +
-//                ", phoneNumber=" + phoneNumber +
-//                ", email='" + email + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Name: "+firstName+" "+lastName+"\n" +
+                "Birthdate: "+birthDate+"\n" +
+                "Employee Number: "+employeeNumber+"\n" +
+                "Position: "+position+"\n" +
+                "Phone number: "+phoneNumber+"\n" +
+                "Email: "+email+"\n" +
+                "courses: "+ courses+"\n";
+    }
+
 }
